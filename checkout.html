@@ -263,6 +263,13 @@
       totalCell.textContent = `₹${item.price * item.quantity}`;
       row.appendChild(totalCell);
 
+      const removeCell = document.createElement('td');
+      const removeButton = document.createElement('button');
+      removeButton.textContent = 'Remove';
+      removeButton.addEventListener('click', () => removeItemFromCart(item.id));
+      removeCell.appendChild(removeButton);
+      row.appendChild(removeCell);
+
       cartBody.appendChild(row);
 
       // Add to subtotal
@@ -280,6 +287,13 @@
     item.quantity = parseInt(newQuantity);
     localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
     updateCart(); // Recalculate and update the cart
+  }
+
+  // Function to remove an item from the cart
+  function removeItemFromCart(itemId) {
+    cart = cart.filter(item => item.id !== itemId); // Remove the item from the cart
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+    updateCart(); // Recalculate and update the cart display
   }
 
   // Checkout form submission handler
@@ -306,6 +320,18 @@
 
   // Initialize cart on page load
   window.onload = updateCart;
+</script>
+
+
+<script>
+  function removeItem(itemId) {
+      const item = document.getElementById(itemId);
+      if (item) {
+          item.remove();
+      } else {
+          alert("Item not found!");
+      }
+  }
 </script>
 
 </body>

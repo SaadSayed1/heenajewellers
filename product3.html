@@ -64,11 +64,11 @@
               
             </div>
           </div>
-          <div class="cart-icon-container">
+          <a href="checkout.html"><div class="cart-icon-container">
             <i class="fa fa-shopping-cart" id="cart-icon">
               <span id="cart-count" class="cart-count-badge">0</span>
             </i>
-          </div>
+          </div></a>
         </nav>
       </div>
     </header>
@@ -695,8 +695,8 @@ let currentQuantity = 1; // Initialize quantity for the product
 function addToCart() {
   const product = {
     id: 3, // Unique product ID (should be dynamic in real applications)
-    name: "Dimond Necklace",
-    price: 11000,
+    name: "Diamond Necklace",
+    price: 1100,
     quantity: currentQuantity, // Use the current quantity selected by the user
   };
 
